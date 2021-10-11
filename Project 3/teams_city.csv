@@ -1,0 +1,31 @@
+TEAM_ID,PTS,CITY,ABBREVIATION,ARENA,NICKNAME,HOME_TEAM_WINS,HOME_TEAM_LOSS
+1610612744,12161.0,Golden State,GSW,Chase Center,Warriors,36,16
+1610612761,11942.0,Toronto,TOR,Scotiabank Arena,Raptors,41,13
+1610612749,11378.0,Milwaukee,MIL,Fiserv Forum,Bucks,39,10
+1610612757,11157.0,Portland,POR,Moda Center,Trail Blazers,37,12
+1610612755,10749.0,Philadelphia,PHI,Wells Fargo Center,76ers,35,12
+1610612743,10603.0,Denver,DEN,Pepsi Center,Nuggets,39,10
+1610612745,10535.0,Houston,HOU,Toyota Center,Rockets,36,11
+1610612738,10135.0,Boston,BOS,TD Garden,Celtics,30,15
+1610612746,10130.0,Los Angeles,LAC,Staples Center,Clippers,26,18
+1610612760,9913.0,Oklahoma City,OKC,Chesapeake Energy Arena,Thunder,28,15
+1610612759,9879.0,San Antonio,SAS,AT&T Center,Spurs,34,10
+1610612751,9761.0,Brooklyn,BKN,Barclays Center,Nets,23,20
+1610612762,9650.0,Utah,UTA,Vivint Smart Home Arena,Jazz,30,13
+1610612740,9466.0,New Orleans,NOP,Smoothie King Center,Pelicans,19,22
+1610612758,9363.0,Sacramento,SAC,Golden 1 Center,Kings,24,17
+1610612764,9350.0,Washington,WAS,Capital One Arena,Wizards,22,19
+1610612737,9294.0,Atlanta,ATL,State Farm Arena,Hawks,17,24
+1610612753,9260.0,Orlando,ORL,Amway Center,Magic,25,18
+1610612754,9224.0,Indiana,IND,Bankers Life Fieldhouse,Pacers,29,14
+1610612750,9223.0,Minnesota,MIN,Target Center,Timberwolves,25,16
+1610612765,9170.0,Detroit,DET,Little Caesars Arena,Pistons,26,17
+1610612747,9165.0,Los Angeles,LAL,Staples Center,Lakers,22,19
+1610612766,9081.0,Charlotte,CHA,Spectrum Center,Hornets,25,16
+1610612742,8927.0,Dallas,DAL,American Airlines Center,Mavericks,24,17
+1610612756,8815.0,Phoenix,PHX,Talking Stick Resort Arena,Suns,12,29
+1610612748,8668.0,Miami,MIA,AmericanAirlines Arena,Heat,19,22
+1610612741,8605.0,Chicago,CHI,United Center,Bulls,9,32
+1610612752,8575.0,New York,NYK,Madison Square Garden,Knicks,9,32
+1610612739,8567.0,Cleveland,CLE,Quicken Loans Arena,Cavaliers,13,28
+1610612763,8490.0,Memphis,MEM,FedExForum,Grizzlies,21,20
