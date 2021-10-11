@@ -1,4 +1,3 @@
--
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +28,6 @@
             border: 2px black solid;
             font: 12px sans-serif;
         }
-        
         td {
             border: 1px black solid;
             padding: 5px;
@@ -55,33 +53,23 @@
 
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Visualizations</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="graphs.html">Teams vs Points</a>
-                            <a class="dropdown-item" href="Homewinloss.html">Home Win vs Loss</a>
-
-                        </div>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="aboutus.html">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Hypothesis.html">Hypothesis</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="multigraph.html">Visualizations</a>
-                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Visualizations</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="multigraph.html">Teams Graphs</a>
+                            <a class="dropdown-item" href="graphs2.html">Players Graphs</a>
+                        </div>
+                      </li>
                     <li class="nav-item">
                         <a class="nav-link" href="datatable.html">Data Table</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Conclusion.html">Conclusion</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="References.html">References</a>
                     </li>
-
+                    
                 </ul>
             </div>
         </div>
@@ -91,35 +79,35 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>Data</h1>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                <p>The following table includes the data used for plotting the team graphs during this project.</p>
             </div>
         </div>
-        <hr>
+    </div>
+    <br>
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>The following table includes all of the data used for plotting during this project.</p>
+                <script src="http://d3js.org/d3.v3.min.js"></script>
+                <script type="text/javascript"charset="utf-8">
+                    d3.text("teams_city.csv", function(data) {
+                        var parsedCSV = d3.csv.parseRows(data);
+                        var container = d3.select("body")
+                            .append("table")
+                            .selectAll("tr")
+                                .data(parsedCSV).enter()
+                                .append("tr")
+                            .selectAll("td")
+                                .data(function(d) { return d; }).enter()
+                                .append("td")
+                                .text(function(d) { return d; });
+                    });
+                </script>
             </div>
         </div>
     </div>
 
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        d3.text("teams_city.csv", function(data) {
-            var parsedCSV = d3.csv.parseRows(data);
-            var container = d3.select("body")
-                .append("table")
-                .selectAll("tr")
-                .data(parsedCSV).enter()
-                .append("tr")
-                .selectAll("td")
-                .data(function(d) {
-                    return d;
-                }).enter()
-                .append("td")
-                .text(function(d) {
-                    return d;
-                });
-        });
-    </script>
-</body>
-
+    </body>
 </html>

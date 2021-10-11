@@ -1,4 +1,4 @@
--$(document).ready(function() {
+$(document).ready(function(){
     makeMap();
 
     // EVENT LISTENER
@@ -6,7 +6,7 @@
         makeMap();
     });
 
-
+    
 });
 
 function makeMap() {
@@ -25,12 +25,12 @@ function makeMap() {
             row.ARENA_LAT = +row.ARENA_LAT;
             row.ARENA_LONG = +row.ARENA_LONG;
             row.ARENACAPACITY = +row.ARENACAPACITY;
-
+            
         });
 
 
         let conf = $("#conf_filter").val();
-        if (conf != "All") {
+        if(conf !="All") {
             data = data.filter(x => x.CONFERENCE == conf);
         }
 
@@ -46,12 +46,12 @@ function makeMap() {
             id: 'mapbox/satellite-v9',
             accessToken: API_KEY
         }).addTo(myMap);
-
+    
         // Loop through the csv data, and create one marker for each city object.
         for (let i = 0; i < data.length; i++) {
             let city = data[i];
 
-            location = [city.ARENA_LAT, city.ARENA_LONG];
+            location = [city.ARENA_LAT,city.ARENA_LONG];
             Team = [city.CITY + ' ' + city.NICKNAME];
 
             // create the marker
@@ -63,7 +63,7 @@ function makeMap() {
                 // This will make our marker's size proportionate to its population.
                 radius: markerSize(city.ARENACAPACITY)
             }).bindPopup(`<h1>${Team}</h1> <hr> <h3>Year Founded: ${city.YEARFOUNDED}</h3> <h3>Owner: ${city.OWNER}</h3> <h3>General Manager: ${city.GENERALMANAGER}</h3> <h3>Head Coach: ${city.HEADCOACH}</h3> <h3>D League Affiliation: ${city.DLEAGUEAFFILIATION}</h3> <h3>Arena: ${city.ARENA}</h3> <h3>Arena Capacity: ${city.ARENACAPACITY.toLocaleString()}</h3>`).addTo(myMap);
-
+   
         }
     });
 }
@@ -80,11 +80,14 @@ function makeColor(ARENACAPACITY) {
     // Conditionals for country points
     if (ARENACAPACITY > 20000) {
         rtnColor = "blue";
-    } else if (ARENACAPACITY > 18500) {
+    }
+     else if (ARENACAPACITY > 18500) {
         rtnColor = "red";
-    } else {
+    } 
+    else {
         rtnColor = "white";
     }
 
     return rtnColor;
 }
+
