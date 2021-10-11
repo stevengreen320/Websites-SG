@@ -1,0 +1,175 @@
+-
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multiple Graphs</title>
+
+    <!-- Bring in our bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <!-- Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="teams.js"></script>
+    <script src="plot.js"></script>
+    <script src="homewinloss.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">HOME</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav ml-auto">
+            </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="multigraph.html">Visualizations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="map.html">Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatable.html">Data Table</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="References.html">References</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+
+
+
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-12 jumbotron text_center">
+                <h1>NBA Stats: Season 2018</h1>
+            </div>
+            <div class="card border-primary mb-">
+                <div class="card-body">
+                    <h3 class="card-title">Graphs Summary</h3>
+                    <p class="card-text"> The first graph on the left is allowing you to see which team made the most points for Season 2018. You are also able to know the number of wins versus number of losses when the teams were playing at their home city/ stadium. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <!-- <div class="card-header">Filters</div> -->
+                    <div class="card-body">
+                        <div id="filters">
+                            <select id="metric_filter">
+                                <option value="PTS">Total Points per Team</option>
+                                <option value="HOME_TEAM_WINS">Number of Home Team Wins</option>
+                                <option value="HOME_TEAM_LOSS">Number of Home Team Losses</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="plot"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="plotid"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Conference Team Map</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card border-primary mb-3">
+                    <div class="card-body">
+                        <div id="filters">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <!-- Dropdown -->
+                                    <label class="col-form-label mt-4" for="conf_filter">Conference</label>
+                                    <select id="conf_filter">
+                                        <option value="All">All</option>
+                                        <option value="Eastern" selected>Eastern</option>
+                                        <option value="Western">Western</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12" id="mapcontainer">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="bar"></div>
+    <div id="bar2"></div>
+    <div id="plot"></div>
+    <div id="plot"></div>
+</body>
+
+</html>
