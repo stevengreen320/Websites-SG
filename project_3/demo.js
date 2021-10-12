@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 $(document).ready(function() {
-    
+
     // d3 CSV
     let url = "teams_city.csv";
     d3.csv(url).then(function(data) {
@@ -13,11 +12,11 @@ $(document).ready(function() {
 
 
         var traces = [{
-            "x": data.map(x=> x.NICKNAME),
-            "y": data.map(x=> x.PTS),
+            "x": data.map(x => x.NICKNAME),
+            "y": data.map(x => x.PTS),
             "type": 'bar'
         }];
-    
+
         var layout = {
             "title": `Team Points 2018`,
             yaxis: {
@@ -26,15 +25,15 @@ $(document).ready(function() {
                 }
             }
         }
-    
+
         Plotly.newPlot('bar', traces, layout);
 
         var traces2 = [{
-            "x": data.map(x=> x.CITY),
-            "y": data.map(x=> x.HOME_TEAM_WINS),
+            "x": data.map(x => x.CITY),
+            "y": data.map(x => x.HOME_TEAM_WINS),
             "type": 'bar'
         }];
-    
+
         var layout2 = {
             "title": `City Wins 2018`,
             yaxis: {
@@ -43,14 +42,13 @@ $(document).ready(function() {
                 }
             }
         }
-    
+
         Plotly.newPlot('bar2', traces2, layout2);
 
     });
 });
-=======
 $(document).ready(function() {
-    
+
     // d3 CSV
     let url = "teams_city.csv";
     d3.csv(url).then(function(data) {
@@ -63,11 +61,11 @@ $(document).ready(function() {
 
 
         var traces = [{
-            "x": data.map(x=> x.NICKNAME),
-            "y": data.map(x=> x.PTS),
+            "x": data.map(x => x.NICKNAME),
+            "y": data.map(x => x.PTS),
             "type": 'bar'
         }];
-    
+
         var layout = {
             "title": `Team Points 2018`,
             yaxis: {
@@ -76,15 +74,15 @@ $(document).ready(function() {
                 }
             }
         }
-    
+
         Plotly.newPlot('bar', traces, layout);
 
         var traces2 = [{
-            "x": data.map(x=> x.CITY),
-            "y": data.map(x=> x.HOME_TEAM_WINS),
+            "x": data.map(x => x.CITY),
+            "y": data.map(x => x.HOME_TEAM_WINS),
             "type": 'bar'
         }];
-    
+
         var layout2 = {
             "title": `City Wins 2018`,
             yaxis: {
@@ -93,7 +91,7 @@ $(document).ready(function() {
                 }
             }
         }
-    
+
         Plotly.newPlot('bar2', traces2, layout2);
 
     });
@@ -107,4 +105,3 @@ function updateChartType() {
         data: myData,
     });
 };
->>>>>>> c8c34ec3cb11fe01ea1975967517482e033a26b5
