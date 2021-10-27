@@ -7,7 +7,7 @@ var timeframe = "all_day.geojson";
 var url = baseURL + timeframe;
 
 // geojson
-var tectonic_plates_url = "../static/data.json";
+var tectonic_plates_url = "../static/data";
 $(document).ready(function() {
     // AJAX
     $.ajax({
